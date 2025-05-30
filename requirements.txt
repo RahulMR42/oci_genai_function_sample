@@ -1,0 +1,4 @@
+fdk>=0.1.54
+requests
+oci
+
