@@ -38,8 +38,8 @@ class Ocigenai:
             chat_response = self.generative_ai_inference_client.chat(data)
             return chat_response
         except Exception as error:
-            logging.getLogger().error(f"Error in Generative AI Chat: {str(e)}")
-            return json.dumps({"error": str(e)})
+            logging.getLogger().error(f"Error in Generative AI Chat: {str(error)}")
+            return json.dumps({"error": str(error)})
 
     
 def handler(ctx, data: io.BytesIO = None):
