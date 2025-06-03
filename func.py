@@ -26,8 +26,8 @@ class Ocigenai:
         try:
             self.generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(**self.CLIENT_KWARGS)
         except Exception as error:
-            logging.getLogger().error(f"Error in Generative AI Controller: {str(e)}")
-            return json.dumps({"error": str(e)})
+            logging.getLogger().error(f"Error in Generative AI Controller: {str(error)}")
+            return json.dumps({"error": str(error)})
     def chat(self,data):
         """
         Function to run chat router against OCI Genai,
@@ -56,7 +56,7 @@ def handler(ctx, data: io.BytesIO = None):
             response_data=vars(result),
             headers={"Content-Type": "application/json"})
 
-    except Exception as e:
-        logging.getLogger().error(f"Error in Generative AI function: {str(e)}")
-        return json.dumps({"error": f"Error in Generative AI function - {str(e)}"})
+    except Exception as error:
+        logging.getLogger().error(f"Error in Generative AI function: {str(error)}")
+        return json.dumps({"error": f"Error in Generative AI function - {str(error)}"})
     
