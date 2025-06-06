@@ -50,6 +50,7 @@ def handler(ctx, data: io.BytesIO = None):
         body = json.loads(data.getvalue())
         handler = Ocigenai()
         result = handler.chat(data=body)
+        logging.getLogger().info(str(result))
     
         return response.Response(
             ctx, 
@@ -58,5 +59,5 @@ def handler(ctx, data: io.BytesIO = None):
 
     except Exception as error:
         logging.getLogger().error(f"Error in Generative AI function: {str(error)}")
-        return json.dumps({"error": f"Error in Generative AI function - {str(error)}"})
+        return json.dumps({"error": f"Error in Generative AI function - {str(error)}","details":str(result)})
     
