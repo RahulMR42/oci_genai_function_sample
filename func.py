@@ -54,7 +54,7 @@ def handler(ctx, data: io.BytesIO = None):
     
         return response.Response(
             ctx, 
-            response_data=vars(result),
+            response_data=result.data,
             headers={"Content-Type": "application/json"})
 
     except Exception as error:
